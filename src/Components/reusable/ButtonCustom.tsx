@@ -7,6 +7,7 @@ import styled, { css } from 'styled-components'
 interface Props {
   color?: string
   isNegative?: boolean
+  name?: string
 }
 
 const ButtonStyle = styled.a<Props>`
@@ -34,9 +35,10 @@ const ButtonCustom: React.FunctionComponent<Props & { onClick: () => void; title
   isNegative,
   onClick,
   title,
+  name,
 }) => {
   return (
-    <ButtonStyle color={color} onClick={onClick} isNegative={isNegative}>
+    <ButtonStyle name={name} color={color} onClick={onClick} isNegative={isNegative}>
       <TextCustom type={textTypes.MEDIUM} color={colors.white}>
         {title}
       </TextCustom>

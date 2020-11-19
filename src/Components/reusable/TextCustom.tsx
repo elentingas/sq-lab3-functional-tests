@@ -53,11 +53,12 @@ interface TextCustomProps {
   type: string
   color?: string
   className?: string
+  name?: string
 }
 
-const TextCustom: React.FunctionComponent<TextCustomProps> = ({ type, color, children, className }) => {
+const TextCustom: React.FunctionComponent<TextCustomProps> = ({ type, color, children, className , name}) => {
   return (
-    <TextCustomStyle className={className} textType={type} color={color}>
+    <TextCustomStyle id={name} className={className} textType={type} color={color}>
       {children}
     </TextCustomStyle>
   )
