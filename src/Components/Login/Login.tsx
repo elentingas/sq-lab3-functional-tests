@@ -75,7 +75,34 @@ const Login: React.FunctionComponent<LoginProps> = ({ loginRequest, match, locat
         />
         <ButtonCustom
           onClick={() => {
-            setResultText("Submitted")
+            let specialCharacters = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+            let specialCharactersButPlus = /[ `!@#$%^&*()_\-=\[\]{};':"\\|,.<>\/?~]/;
+            let letters = /[a-zA-Z]/g;
+            let numbers = /\d/;
+
+            if (!companyName) {
+              setResultText("Company name cannot be blank")
+            } else if (companyName.length > 30 || companyName.length < 3 || specialCharacters.test(companyName)) {
+              setResultText("Company name is invalid")
+            } else if (!email) {
+              setResultText("Email cannot be blank")
+            } else if (!email.includes(".") || !email.includes("@")) {
+              setResultText("Email is invalid")
+            } else if (!contactPersonFirstName) {
+              setResultText("Contact person first name cannot be blank")
+            } else if (specialCharacters.test(contactPersonFirstName) || numbers.test(contactPersonFirstName) ) {
+              setResultText("Contact person first name is invalid")
+            } else if (!contactPersonLastName) {
+              setResultText("Contact person last name cannot be blank")
+            } else if (specialCharacters.test(contactPersonLastName) || numbers.test(contactPersonLastName)) {
+              setResultText("Contact person last name is invalid")
+            } else if (!phone) {
+              setResultText("Phone number cannot be blank")
+            } else if (phone.length > 25 || phone.length < 3 || letters.test(phone) || specialCharactersButPlus.test(phone)) {
+              setResultText("Phone number is invalid")
+            } else {
+              setResultText("Submitted")
+            }
           }}
           color={colors.purple}
           title="Submit"
