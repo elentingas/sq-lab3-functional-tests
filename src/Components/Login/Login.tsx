@@ -27,7 +27,7 @@ const Login: React.FunctionComponent<LoginProps> = ({ loginRequest, match, locat
 
   const validate = () => {
     let specialCharacters = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    let specialCharactersButPlus = /[ `!@#$%^&*()_\-=\[\]{};':"\\|,.<>\/?~]/;
+    let specialCharactersButPlus = /[`!@#$%^&*()_\-=\[\]{};':"\\|,.<>\/?~]/;
     let letters = /[a-zA-Z]/g;
     let numbers = /\d/;
 
